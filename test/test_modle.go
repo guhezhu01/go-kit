@@ -1,4 +1,4 @@
-package go_kit
+package test
 
 const code = 1000
 
