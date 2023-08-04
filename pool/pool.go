@@ -1,6 +1,6 @@
 package pool
 
-// Goes内部维护一组Worker。
+// GoesPool Goes内部维护一组Worker。
 // 如果接收到外部任务，向空闲Worker发送任务
 type GoesPool struct {
 	workers       []*worker     // 所有Worker
@@ -44,8 +44,8 @@ func (slf *GoesPool) Add(task GoTask) {
 	slf.Post(task)
 }
 
-// NewGoesPool 创建一个GoesPool新对象指针，指定内部Worker协程的数量。
-func NewGoesPoolDefault(numWorkers int) *GoesPool {
+// NewSetGoesPool NewGoesPool 创建一个GoesPool新对象指针，指定内部Worker协程的数量。
+func NewSetGoesPool(numWorkers int) *GoesPool {
 	return NewGoesPool(numWorkers, max(1, numWorkers/2))
 }
 
